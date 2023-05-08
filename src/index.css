@@ -7,6 +7,9 @@ html {
   margin: 0;
   padding: 0;
   scroll-behavior: smooth;
+  height: 100vh;
+  width: 100%;
+  max-width: 100vw;
 }
 
 ::-webkit-scrollbar {
