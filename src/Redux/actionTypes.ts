@@ -1,0 +1,3 @@
+export const GET_REQUEST_SUCCESS: string = "GET_REQUEST_SUCCESS";
+export const GET_REQUEST_FAILURE: string = "GET_REQUEST_FAILURE";
+export const GET_REQUEST_ERROR: string = "GET_REQUEST_ERROR";
