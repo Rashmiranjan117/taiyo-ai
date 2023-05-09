@@ -13,6 +13,12 @@ module.exports = {
         "custom-yellow": "#F9D949",
         "custom-red": "F45050",
       },
+      screens: {
+        sm: "640px",
+        md: "768px",
+        lg: "1024px",
+        xl: "1280px",
+      },
     },
   },
   plugins: [],

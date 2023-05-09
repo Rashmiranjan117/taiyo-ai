@@ -1,0 +1,3 @@
+export const GET_CONTACT_SUCCESS: string = "GET_CONTACT_SUCCESS";
+export const GET_CONTACT_REQUEST: string = "GET_CONTACT_REQUEST";
+export const GET_CONTACT_ERROR: string = "GET_CONTACT_ERROR";
