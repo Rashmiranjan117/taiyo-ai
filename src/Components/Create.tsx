@@ -1,22 +1,37 @@
 import React, { useState, Fragment, FormEvent, ChangeEvent } from "react";
-import { useSelector , useDispatch} from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { Dialog, Transition } from "@headlessui/react";
+import {
+  getDataError,
+  getDataRequest,
+  getDataSuccess,
+} from "../Redux/ContactReducer/action";
+import Alert from "./Alert";
 
-interface ContactType {
+export interface ContactType {
   first: string;
   last: string;
   status: string;
+  id: string;
 }
 
 const Create = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [contact, setContact] = useState({
+  const [contact, setContact] = useState<ContactType>({
     first: "",
     last: "",
     status: "",
+    id: "",
   });
-  const dispatch= useDispatch()
-  
+  const initState: ContactType = {
+    first: "",
+    last: "",
+    status: "",
+    id: "",
+  };
+  const dispatch = useDispatch();
+  const [showAlert, setShowAlert] = useState(false);
+  const data = useSelector((store: any) => store.ContactReducer.data);
 
   const openModal = () => setIsOpen(true);
   const closeModal = () => setIsOpen(false);
@@ -30,15 +45,33 @@ const Create = () => {
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(contact);
+    let { first, last, status } = contact;
+    let id = first + Math.random() + last;
+    try {
+      dispatch(getDataRequest());
+      if (!contact.first || !contact.last || !contact.status) {
+        closeModal();
+        return setShowAlert(true);
+        // return alert("All Data feilds must be filled");
+      } else {
+        dispatch(getDataSuccess({ ...contact, first, last, status, id }));
+        setShowAlert(false);
+        setContact(initState);
+        closeModal();
+      }
+    } catch (err) {
+      console.error(err);
+      dispatch(getDataError());
+    }
   };
   return (
     <>
+      {showAlert && <Alert />}
       <button
         onClick={openModal}
         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
       >
-        Open Modal
+        Create Contact
       </button>
 
       <Transition appear show={isOpen} as={Fragment}>
