@@ -10,6 +10,7 @@
 ![Redux](https://img.shields.io/badge/Redux-593D88?style=for-the-badge&amp;logo=redux&amp;logoColor=white)
 [![Chart.js](https://img.shields.io/badge/Chart.js-FF6384?style=for-the-badge&logo=chartdotjs&logoColor=white)](https://www.chartjs.org/)
 [![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+[![React-Leaflet](https://img.shields.io/badge/React--Leaflet-88C057?style=for-the-badge&logo=React&logoColor=white&labelColor=88C057)](https://react-leaflet.js.org/)
 
 ## Pages:
 - `/` Contact Page
